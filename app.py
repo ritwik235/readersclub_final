@@ -1,10 +1,8 @@
-from re import template
 from flask import Flask, render_template,request,session,url_for,redirect
 import random
 import sqlite3
-from datetime import date
 from passlib.hash import sha256_crypt
-from werkzeug.utils import redirect
+
 app=Flask(__name__)
 app.config["SECRET_KEY"]="235#2009"
 
@@ -24,23 +22,6 @@ leaderboard=['p1','p2','p3','p4','p5','p6']
 
 quote=random.choice(quotes)    
              
-# @app.route('/', methods=['GET', 'POST'])
-# def password():
-    # if request.method=="GET":
-    #     return render_template("members_registration.html")
-    # username=request.form.get("username")
-    # session["username"]=username
-    # if request.method=="GET":
-    #     return render_template("password.html")
-    # password=request.form.get("password")    
-    # message="To access the website please enter the password!"
-    # print(password)
-    # if password=="Jr7+2m21":
-    #     return render_template("index.html",quote=quote)
-    # else:
-    #     return render_template('password.html',error="incorrect password")
-    
-
 @app.route('/', methods=['GET', 'POST'])
 def index():
     return render_template("index.html",quote=quote)
